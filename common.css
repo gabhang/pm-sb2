@@ -1,0 +1,63 @@
+/* Import font from Google font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+/* Apply font to body of every page */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* Set height for logo on navbar */
+.navbar-brand img {height: 3rem;}
+
+/* Change navbar text properties and add background color with opacity */
+.navbar {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.84rem;
+    letter-spacing: .1rem;
+    background: rgba(0,0,0,0.6)!important;
+    align-content: center;
+}
+
+/* Change word colour on hover */
+.nav-link:hover {
+    color: rgba(97,108,254) !important;
+    background-color: transparent;
+}
+
+/* Set footer properties */
+footer {
+    background-color: #40474e;
+    text-align: left;
+    padding: 55px 50px;
+    display: inline-block;
+    width: 100%;
+    color: #ffffff;
+}
+
+/* Change footer links' colour */ 
+.footer-links {
+    color: #ffffff;
+}
+
+/* Change footer links' colour on hover and remove link decoration */ 
+.footer-links:hover {
+    text-decoration: none;
+    color:rgba(97,108,254);
+}
+
+/* Set margin for company name in footer */
+.footer-company-name {
+    margin-top: 50px;
+}
+
+/* Set colour margin for social media icons in footer */
+.footer-icons {
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+/* Change colour for social media icons on hover */
+.footer-icons:hover {
+    color: rgba(97,108,254);
+}

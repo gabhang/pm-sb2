@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Title for Website -->
+    <title>Foodie</title>
+
+    <!-- Added shortcut icon -->
+    <link href="Images/logo-shortcut.png" rel="shortcut icon">
+    
+    <!-- External CSS links -->
+    <link href="common.css" rel="stylesheet">
+    <link href="about.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Start Navigation Section -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-light fixed-top">
+        <!-- Added logo on navbar -->
+        <a class="navbar-brand" href="home.html"><img src="Images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <!-- Added links to other pages -->
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav ml-auto">
+                <!-- User Greeting message and menu for logged in user -->
+                <li id="userGreeting" hidden class="nav-item">
+                    <a href="#" id="userGreetingText" class="nav-link">Hello </a>
+                </li>
+                <li class="nav-item">
+                    <a id="loginSignup" class="nav-link" href="loginRegister.html"><i class="fa fa-users"></i>
+                        Login/Sign Up</a>
+                </li>
+                <li class="nav-item">       
+                    <a id="userAccount" hidden class="nav-link" href="userAccount.html"><i class="fa fa-users"></i>
+                        Manage account</a>
+                </li>
+                <li class="nav-item">
+                    <a id="logoutUser" hidden class="nav-link" onclick="logout()" href="#"><i class="fa fa-users"></i>
+                        Logout</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Redirect to checkout page if order exist and is logged in -->
+                    <a class="nav-link" href="#" onclick="checkOrderAndLogin()"><i class="fa fa-cutlery"></i> Checkout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Navigation Section -->
+
+    <!-- Start About Us Section -->
+    <div class="about-wrap">
+        <div class="about-inner">
+            <!-- Added picture as background -->
+            <img src="Images/aboutimg.jpeg" alt="backgound-image">
+            <!-- Added text about us on top of the background -->
+            <div class="about-caption text-center">
+                <h1>About Us</h1>
+                <h3>
+                    Foodie was founded in 2021. For us, sustainability is 
+                    not a lofty idea but a fundamental and necessary endeavor. 
+                    Our concept is about the food and drink of course but it is 
+                    also about our team, our facilities, our practices and the 
+                    hundreds of decisions we make each day that affect the world 
+                    around us. Food as it should be. Food should taste good. 
+                    It should feel good. It should do good things for you and 
+                    the world around you.
+                </h3>
+            </div>
+        </div>
+    </div>
+    <!-- End About Us Section -->
+
+    <!-- Start Footer Section -->
+    <footer>
+        <div class="row">
+            <div class="footer-left col-md-4">
+                <!-- Added links to other pages on footer -->
+                <p>
+                    <a href="home.html" class="footer-links">Home </a>|
+                    <a href="menu.html" class="footer-links">Menu </a>|
+                    <a href="about.html" class="footer-links">About Us </a>|
+                    <a href="loginRegister.html" class="footer-links">Login/Sign Up</a>
+                </p>
+                <p class="footer-company-name">Foodie © 2020</p>
+            </div>
+
+            <div class="footer-center col-md-4">
+                <!-- Added address, contact number and email -->
+                <div>
+                    <p>
+                        <i class="fa fa-map-marker"></i>
+                        <!-- Show on Google Maps when clicked -->
+                        <a href="http://maps.google.com/maps?q=Dublin Road, Galway City, Co. Galway, Ireland" class="footer-links" target="_blank">Dublin Road, Galway City, Co. Galway, Ireland</a> 
+                    </p>
+                </div>
+                <div>
+                    <p><i class="fa fa-phone"></i> 0831234567</p>
+                </div>
+                <div>
+                    <p>
+                        <i class="fa fa-envelope"></i>
+                        <!-- Compose new mail when clicked -->
+                        <a href="mailto:support@gmiteats.com" class="footer-links" target="_blank">support@foodie.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-right col-md-4">
+                <p>Follow us on our social medias!</p>
+                <!-- Added links to social medias with icons -->
+                <div>
+                    <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-2x footer-icons"></i></a>
+                    <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter fa-2x footer-icons"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram fa-2x footer-icons"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <!-- External link to JS -->
+    <script src="common.js"></script>
+</body>
+</html>

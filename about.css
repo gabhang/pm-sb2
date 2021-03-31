@@ -1,0 +1,69 @@
+/* Make image width to 100% */
+.about-inner img {
+    width: 100%;
+}
+
+/* Added background with opacity to text and make it absolute */
+.about-caption {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 74px;
+    z-index: 0;
+    color: white;
+    background-color: rgba(0,0,0,0.4);
+    padding: 100px;
+}
+
+/* Change of word size, weight, padding and added text shadow */
+.about-caption h1 {
+    font-size: 3.8rem;
+    font-weight: 700;
+    text-shadow: .1rem .1rem .8rem black;
+    padding-bottom: 3rem;
+}
+
+/* Change of word size, padding and added text shadow */
+.about-caption h3 {
+    font-size: 1.5rem;
+    text-shadow: .1rem .1rem .5rem black;
+    padding: 0 100px;
+}
+
+/* Change of word size and padding accordingly to make it responsive */
+@media (max-width: 992px) { 
+    .about-caption {
+        padding-top: 75px; 
+        background-color: transparent;
+    }
+
+    .about-caption h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) { 
+    .about-caption {
+        padding: 0px 50px;   
+    }
+
+    .about-caption h1 {
+        font-size: 3rem;   
+    }
+
+    .about-caption h3 {
+        font-size: 0.9rem; 
+        padding: 0 25px;
+    }
+}
+
+@media (max-width: 576px) {    
+    .about-caption h1 {
+        font-size: 2rem;   
+    }
+
+    .about-caption h3 {
+        font-size: 0.8rem; 
+        padding: 0 10px;
+    }
+}

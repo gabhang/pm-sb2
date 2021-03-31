@@ -1,0 +1,164 @@
+/* Global "table" column settings */
+.product-image { float: left; width: 20%; }
+.product-details { float: left; width: 37%; }
+.product-price { float: left; width: 12%; }
+.product-quantity { float: left; width: 10%; }
+.product-removal { float: left; width: 9%; }
+.product-line-price { float: left; width: 12%; text-align: center; }
+
+/* Apply dollar signs to prices */
+.product .product-price:before, .product .product-line-price:before, .totals-value:before {
+  content: '€';
+}
+
+/* Change body properties */
+body {
+  font-weight: 100;
+  margin-top: 30px;
+}
+
+/* Change padding of checkout section */
+.checkout-section {
+  padding: 50px 30px 30px 20px;
+}
+
+/* Change heading properties of checkout page */
+.checkout-heading {
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 50px 0;
+  color: #003152;
+  letter-spacing: 2px;
+}
+
+/* Change column labels properties */
+.column-labels {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid;
+}
+
+/* Change product information properties of checkout page */
+.product {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+} 
+
+.product-image {
+    text-align: center;
+}
+
+.product-image img {
+    width: 100px;
+    height: 75px;
+}
+
+.product-title {
+    margin-right: 20px;
+}
+
+.product-description {
+    margin: 5px 20px 5px 0;
+    line-height: 1.4em;
+}
+
+/* Change remove button properties */
+.remove-product {
+    border: 0;
+    padding: 4px 8px;
+    background-color: #c66;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+/* Change remove button properties of checkout page when hover */
+.remove-product:hover {
+    background-color: #a44;
+}
+
+/* Change coupon section properties */
+.coupon {
+  float: left;
+  width: 50%;
+}
+
+/* Change total section properties of checkout page */
+.totals-item {
+  float: right;
+  width: 50%;
+  margin-bottom: 10px;
+}
+    
+.totals-item label {
+  float: left;
+  width: 30%;
+  text-align: right;
+}
+    
+.totals-value {
+  float: right;
+  width: 20%;
+  text-align: center;
+}
+
+/* Change checkout button properties */
+.checkout {
+  float: right;
+  clear: both;
+  border: 0;
+  margin: 20px 0;
+  padding: 6px 25px;
+  background-color: #6b6;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 3px;
+}
+
+/* Change checkout button properties on hover */
+.checkout:hover {
+  background-color: #494;
+}
+
+/* Make adjustments for smaller page width */
+@media screen and (max-width: 650px) {
+  .shopping-cart {
+    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid;
+  }
+
+  .column-labels {
+    display: none;
+  }
+
+  .product-image {
+    display: none;
+  }
+
+  .product-details {
+    float: none;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    width: auto;
+  }
+
+  .product-price {
+    width: 70px;
+    padding-left: 10px;
+  }
+
+  .product-quantity {
+    width: 100px;
+  }
+
+  .product-removal {
+    width: auto;
+  }
+
+  .product-line-price {
+    float: right;
+    width: 70px;
+  }
+}

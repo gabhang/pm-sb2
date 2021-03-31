@@ -1,0 +1,115 @@
+/* Set background when modal pops out */
+.bg-modal {
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex !important;
+    z-index: 1050;
+}
+
+/* Set modal properties */
+.modal-content {
+    width: 500px;
+    height: 180px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+    z-index: 1060;
+}
+
+/* Set properties for modal buttons */
+.selection {
+    margin-top: 30px;
+    display: inline-block !important;
+}
+
+/* Change '+' to 'x' and put it on top right corner of modal */
+.close {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+/* Set caption properties in carousel and add background */
+.carousel-caption {
+    width: 70%;
+    position: absolute;
+    color: white;
+    text-transform: uppercase;
+    background-color: rgba(0,0,0,0.4);
+    padding: 1rem;
+}
+
+/* Change properties of p in carousel */
+.carousel-caption p {
+    font-size: 0.9rem !important;
+}
+
+/* Change button properties when hover */
+.carousel-caption a:hover {
+    color: black;
+}
+
+/* Set max-height for picture in carousel */
+.carousel-picture {
+    max-height: 600px;
+}
+
+/* Change properties of class promo */
+.promo {
+    padding: 75px;
+    margin: 0;
+}
+
+/* Change font properties of promo description */
+.ten {
+    font-weight: 700;
+    font-size: 5rem;
+}
+
+/* Change colour of the word 'off' */
+.off {
+    color: red;
+}
+
+/* Put border and set properties for promo code */
+.code h2 {
+    font-weight: 600;
+    letter-spacing: 3px;
+    border: 2px dashed grey;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+/* Change colour of promo description */
+.code p {
+    color: #474c52;
+}
+
+/* Change of carousel properties according to page width */
+@media (min-width: 768px) {
+    .carousel-caption {
+        bottom: 20%;
+    }
+
+    .carousel-caption h5 {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: .1rem;
+        padding-bottom: 1rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.8rem;
+        padding-bottom: 1.6rem;
+    }
+}

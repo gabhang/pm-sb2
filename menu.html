@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<!-- Title for Website -->
+	<title>Foodie</title>
+
+	<!-- Added shortcut icon -->
+	<link href="Images/logo-shortcut.png" rel="shortcut icon">
+	
+    <!-- External CSS links -->
+	<link href="common.css" rel="stylesheet">
+	<link href="menu.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Start Navigation Section -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-light fixed-top">
+        <!-- Added logo on navbar -->
+        <a class="navbar-brand" href="home.html"><img src="Images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <!-- Added links to other pages -->
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav ml-auto">
+                <!-- User Greeting message and menu for logged in user -->
+                <li id="userGreeting" hidden class="nav-item">
+                    <a href="#" id="userGreetingText" class="nav-link">Hello </a>
+                </li>
+                <li class="nav-item">
+                    <a id="loginSignup" class="nav-link" href="loginRegister.html"><i class="fa fa-users"></i>
+                        Login/Sign Up</a>
+                </li>
+                <li class="nav-item">       
+                    <a id="userAccount" hidden class="nav-link" href="userAccount.html"><i class="fa fa-users"></i>
+                        Manage account</a>
+                </li>
+                <li class="nav-item">
+                    <a id="logoutUser" hidden class="nav-link" onclick="logout()" href="#"><i class="fa fa-users"></i>
+                        Logout</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Redirect to checkout page if order exist and is logged in -->
+                    <a class="nav-link" href="#" onclick="checkOrderAndLogin()"><i class="fa fa-cutlery"></i> Checkout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Navigation Section -->
+	
+	<!-- Code block taken from: https://getbootstrap.com/docs/4.0/components/jumbotron/ -->
+	<!-- Displays a jumbotron which uses the full width of the page -->
+	<div id="jumbot" class="jumbotron jumbotron-fluid">
+		<div class="container text-center">
+			<br><br>
+			<h1>Time to Order!!</h1>
+			<p class="lead">Choose a category, view our tasty options, enter a quantity and click the 'Add to Order' button</p>
+			<h6>To view your order, click the checkout button on the navigation bar<h6>
+		</div>
+	</div>
+	<!-- End Jumbotron Code Block -->
+
+	<!-- Code block for Product grid system -->
+	<div class="container">
+		<!-- Code block for Product category navigation -->
+		<!-- categClass has been added to the class list. This class specifies formatting of product category navigation -->
+		<div class="row text-center">
+			<div id="pizzaTab" class="col-lg-3 col-md-6 col-xs-12 categClass active" onclick="changeTab('pizza')"> <img src="Images/pizza_icon.png" alt="Pizza icon" width="40px"> Pizza </div>	
+			<div id="sidesTab" class="col-lg-3 col-md-6 col-xs-12 categClass" onclick="changeTab('sides')"> <img src="Images/sides_icon.png" alt="Sides icon" width="40px"> Sides </div>	
+			<div id="dessertsTab" class="col-lg-3 col-md-6 col-xs-12 categClass" onclick="changeTab('desserts')"> <img src="Images/dessert_icon.png" alt="Dessert icon" width="40px"> Desserts </div>	
+			<div id="drinksTab"class="col-lg-3 col-md-6 col-xs-12 categClass" onclick="changeTab('drinks')"> <img src="Images/drinks_icon.png" alt="Drinks icon" width="40px"> Drinks </div>
+		</div>
+		<hr>
+		<!-- End product category navigation code block -->
+
+		<!-- Code block for pizza options with images, description and button (all button elements have onclick event to add the chosen item to the order array) -->
+		<!-- prodClass has been added to the class list. This class allows space for each products components in the grid system -->
+		<div id="pizzaDiv" class="row text-center">
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/MargheritaPizza.jpg" alt="Image of Margherita Pizza"><br>
+				<h4 id="prod1">Margherita</h4><p>Mozzarella, parmesan, ricotta and brie, drizzled in olive oil</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod1Qty"></i><br>
+				<span>€5</span><br>
+				<button onclick="addToOrder('prod1')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/VegetarianPizza.jpg" alt="Image of Vegetarian Pizza"><br>
+				<h4 id="prod2">Vegetarian</h4><p>Sun-dried tomato, peppers, mushroom, olives and sweetcorn</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod2Qty"></i><br>
+				<span>€6</span><br>
+				<button onclick="addToOrder('prod2')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/MeatLoversPizza.jpg" alt="Image of Meat Lovers Pizza" ><br>
+				<h4 id="prod3">Meat Lovers</h4><p>Ham, pepperoni, salami, spicy beef, crispy bacon and sausage</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod3Qty"></i><br>
+				<span>€8</span><br>
+				<button onclick="addToOrder('prod3')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/DoublePepperoniPizza.jpg" alt="Image of Pepperoni Pizza"><br>
+				<h4 id="prod4">Double Pepperoni</h4><p>Pepperoni, pepperoni and more pepperoni! All the pepperoni!</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod4Qty"></i><br>
+				<span>€7</span><br>
+				<button onclick="addToOrder('prod4')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/HawaiianPizza.jpg" alt="Image of Hawaiian Pizza"><br>
+				<h4 id="prod5">Hawaiian</h4><p>Smoked ham, juicy pineapple and fresh sweetcorn</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod5Qty"></i><br>
+				<span>€7.50</span><br>
+				<button onclick="addToOrder('prod5')">Add to Order</button><hr>
+				</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/SweetPizza.jpg" alt="Image of Chocolate Pizza"><br>
+				<h4 id="prod6">Sweet Pizza</h4><p>Chocolate base with strawberries drizzled in white chocolate</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod6Qty"></i><br>
+				<span>€5</span><br>
+				<button onclick="addToOrder('prod6')">Add to Order</button><hr>
+			</div>
+		</div>
+		<!-- END CODE BLOCK - pizza options -->
+		
+		<!-- Code block for sides options with images, description and button (all button elements have onclick event to add the chosen item to the order array) -->
+		<!-- prodClass has been added to the class list. This class allows space for each products components in the grid system -->
+		<div id="sidesDiv" class="row text-center hidden">
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/FrenchFries.jpg" alt="Image of french fries"><br>
+				<h4 id="prod7">French Fries</h4><p>Our french fries are handcut in store daily</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod7Qty"></i><br>
+				<span>€2.50</span><br>
+				<button onclick="addToOrder('prod7')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/SweetPotatoFries.jpg" alt="Image of sweet potato fries"><br>
+				<h4 id="prod8">Sweet Potato Fries</h4><p>Chunky sweet potato fries, lightly seasoned with paprika</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod8Qty"></i><br>
+				<span>€3.50</span><br>
+				<button onclick="addToOrder('prod8')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/ChunkyWedges.jpg" alt="Image of chunky wedges" ><br>
+				<h4 id="prod9">Chunky Wedges</h4><p>Locally sourced Sweet and Spicy potato wedges</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod9Qty"></i><br>
+				<span>€3</span><br>
+				<button onclick="addToOrder('prod9')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/OnionRings.jpg" alt="Image of onion rings"><br>
+				<h4 id="prod10">Onion Rings</h4><p>Freshly cooked, handmade onion rings in batter</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod10Qty"></i><br>
+				<span>€2.75</span><br>
+				<button onclick="addToOrder('prod10')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/Dip.jpg" alt="Image of dips and sauces"><br>
+				<h4>Portion of Dip</h4><br>
+				<p>Choose here:
+				<select id="prod11" name="dips">
+				<option selected>Curry</option>
+				<option>Garlic Mayo</option>
+				<option>Sweet-Chilli</option>
+				<option>Barbeque</option>
+				<option>Ketchup</option>
+				</select></p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod11Qty"></i><br>
+				<span>€1</span><br>
+				<button onclick="addOption('prod11')">Add to Order</button><hr>
+				</div>
+		</div>
+		<!-- END CODE BLOCK - sides options -->
+
+		<!-- Code block for dessert options with images, description and button (all button elements have onclick event to add the chosen item to the order array) -->
+		<!-- prodClass has been added to the class list. This class allows space for each products components in the grid system -->
+		<div id="dessertsDiv" class="row text-center hidden">
+			<div class="col-xl-4 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/ChocolateLavaCake.jpg" alt="Image of our Chocolate Lava Cake"><br>
+				<h4 id="prod12">Chocolate Lava Cake</h4><p>Chocolate cake that has warm liquid chocolate in the middle</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod12Qty"></i><br>
+				<span>€5</span><br>
+				<button onclick="addToOrder('prod12')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/PBandChocCookies.jpg" alt="Image of our Cookies"><br>
+				<h4 id="prod13">PB and Choc Cookies</h4><p>Baked-to-order chocolate and peanut butter cookies</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod13Qty"></i><br>
+				<span>€3.50</span><br>
+				<button onclick="addToOrder('prod13')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/SweetPizza.jpg" alt="Image of Chocolate Pizza"><br>
+				<h4>Sweet Pizza</h4><p>Chocolate base with strawberries drizzled in white chocolate</p>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod6Qty"></i><br>
+				<span>€5</span><br>
+				<button onclick="addToOrder('prod6')">Add to Order</button><hr>
+			</div>
+		</div>
+		<!-- END CODE BLOCK - dessert options -->
+		
+		<!-- Code block for drink options with images, description and button (all button elements have onclick event to add the chosen item to the order array) -->
+		<!-- prodClass has been added to the class list. This class allows space for each products components in the grid system -->
+		<div id="drinksDiv" class="row text-center hidden">
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/CocaCola500ml.jpg" alt="Coca Cola Logo"><br>
+				<h4 id="prod14">Coca Cola (500ml)</h4>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod14Qty"></i><br>
+				<span>€1.10</span><br>
+				<button onclick="addToOrder('prod14')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/ClubOrange500ml.jpg" alt="Club Orange Logo"><br>
+				<h4 id="prod15">Club Orange (500ml)</h4>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod15Qty"></i><br>
+				<span>€1.10</span><br>
+				<button onclick="addToOrder('prod15')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/ClubLemon500ml.jpg" alt="Club Lemon Logo" ><br>
+				<h4 id="prod16">Club Lemon (500ml)</h4>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod16Qty"></i><br>
+				<span>€1.10</span><br>
+				<button onclick="addToOrder('prod16')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/7up500ml.jpg" alt="7-up Logo"><br>
+				<h4 id="prod17">7-up (500ml)</h4>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod17Qty"></i><br>
+				<span>€1.10</span><br>
+				<button onclick="addToOrder('prod17')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/VanillaMilkshake.jpg" alt="Image of Vanilla Milkshake"><br>
+				<h4 id="prod18">Vanilla Milkshake</h4>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod18Qty"></i><br>
+				<span>€1.70</span><br>
+				<button onclick="addToOrder('prod18')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/ChocolateMilkshake.jpg" alt="Image of Chocolate Milkshake"><br>
+				<h4 id="prod19">Chocolate Milkshake</h4>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod19Qty"></i><br>
+				<span>€1.90</span><br>
+				<button onclick="addToOrder('prod19')">Add to Order</button><hr>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 prodClass"> <img class="prodImg" src="Images/Water500ml.jpg" alt="Image of bottled water"><br>
+				<h4 id="prod20">Water (500ml)</h4>
+				<i>Quantity: &nbsp <input type="number" value="1" min="1" id="prod20Qty"></i><br>
+				<span>€1</span><br>
+				<button onclick="addToOrder('prod20')">Add to Order</button><hr>
+			</div>
+		</div>
+		<!-- END CODE BLOCK - drink options -->
+		
+	</div>
+	<!-- End of code block for product grid system -->
+
+    <!-- Start Footer Section -->
+    <footer>
+        <div class="row">
+            <div class="footer-left col-md-4">
+                <!-- Added links to other pages on footer -->
+                <p>
+                    <a href="home.html" class="footer-links">Home </a>|
+                    <a href="menu.html" class="footer-links">Menu </a>|
+                    <a href="about.html" class="footer-links">About Us </a>|
+                    <a href="loginRegister.html" class="footer-links">Login/Sign Up</a>
+                </p>
+                <p class="footer-company-name">Foodie © 2020</p>
+            </div>
+
+            <div class="footer-center col-md-4">
+                <!-- Added address, contact number and email -->
+                <div>
+                    <p>
+                        <i class="fa fa-map-marker"></i>
+                        <!-- Show on Google Maps when clicked -->
+                        <a href="http://maps.google.com/maps?q=Dublin Road, Galway City, Co. Galway, Ireland" class="footer-links" target="_blank">Dublin Road, Galway City, Co. Galway, Ireland</a> 
+                    </p>
+                </div>
+                <div>
+                    <p><i class="fa fa-phone"></i> 0831234567</p>
+                </div>
+                <div>
+                    <p>
+                        <i class="fa fa-envelope"></i>
+                        <!-- Compose new mail when clicked -->
+                        <a href="mailto:support@gmiteats.com" class="footer-links" target="_blank">support@foodie.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-right col-md-4">
+                <p>Follow us on our social medias!</p>
+                <!-- Added links to social medias with icons -->
+                <div>
+                    <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-2x footer-icons"></i></a>
+                    <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter fa-2x footer-icons"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram fa-2x footer-icons"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+	<!-- End Footer Section -->
+	
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- External link to JS -->
+	<script src="common.js"></script>
+	<script src="menu.js"></script>
+</body>
+</html>

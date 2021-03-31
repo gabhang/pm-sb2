@@ -1,0 +1,59 @@
+/* .prodClass - specifies the height and padding of each products box in the grid system */
+.prodClass {
+   height: 450px; 
+	padding-top: 20px;
+   padding-bottom: 20px;
+}
+	
+/* .categClass - specifies the height, font-size and the cursor options within the category part of the grid system */
+.categClass {
+   height: 50px;
+	font-size: 20px;
+   cursor: pointer;
+}
+	
+/* .prodImg - specifies dimensions of all product images and adds padding between the image and product name */
+.prodImg {
+   height: 200px;
+	width: 230px;
+   padding-bottom: 15px;
+}
+	
+/* .hidden - allows the categories to be hidden. It is added/removed from a categories class list as we need one to be removed or displayed */
+.hidden {
+   display: none;
+}
+
+/* h4 - applies bold to each products name */
+h4 {
+   font-weight: bold;
+}
+
+/* span - aligns and bolds the text contained in all span tags */
+span {
+   text-align: center;
+   font-weight: bold;
+}
+
+/* button -  specifies Add to Order button styling */
+button {
+   color:white;
+	text-shadow: 1px 1px 1px #000000;
+   background-color: #24819D;
+}
+
+/* .active - displays the chosen(active) category in bold */
+.active {
+   font-weight: bold;
+}
+
+/* Remove padding from .prodclass p elements */
+.prodClass p {
+   margin-bottom: 0;
+}
+
+/* Changes size of input box */
+.prodClass input {
+   width: 40px;
+   margin: 0;
+}

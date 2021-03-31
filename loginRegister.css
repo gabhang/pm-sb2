@@ -1,0 +1,18 @@
+/* Class to set the size and margins for login and sig nup forms used in login and sign up page */
+.form-login-signup {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+}
+
+/* Class to set the margins for inputs at login and sign up forms used in login and sign up page */
+.form-login-signup input {
+    margin-bottom: 10px;
+}
+
+/* Class to set the margins for main container */
+.forms-login-signup-container {
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
